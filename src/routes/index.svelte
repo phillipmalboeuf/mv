@@ -14,24 +14,30 @@
 </script>
 
 <script lang="ts">
-	import type { Entry } from 'contentful'
+	import type { Entry, RichTextContent } from 'contentful'
+	import Text from '$lib/Text.svelte'
+	import Hero from '$lib/Hero.svelte'
+	import Sections from '$lib/Sections.svelte'
 
 	export let page: Entry<{
 		titre: string
-		contenu: Entry<{ text: string }>[]
+		sections: Entry<{ titre: string, id?: string, sections?: Entry<{ titre: string, id?: string, text?: RichTextContent }>[] }>[]
 	}>
 </script>
 
-<h1>{page.fields.titre}</h1>
-<p>Nous activons l’intégration du développement durable des entreprises de proximité, générant des transformations positives appuyées sur les meilleures pratiques.</p>
-
-{#each page.fields.contenu as contenu, i}
-<section id={`section-${i}`}>{contenu.fields.text}</section>
+{#each page.fields.sections as section}
+{#if section.sys.contentType.sys.id === 'hero'}
+<Hero hero={section.fields} />
+{:else if section.sys.contentType.sys.id === 'text'}
+<Text text={section.fields} />
+{:else if section.sys.contentType.sys.id === 'page'}
+<section id={section.fields.id}><Sections sections={section.fields.sections} /></section>
+{/if}
 {/each}
 
 <style lang="scss">
 	section {
-		min-height: 100vh;
+		// min-height: 80vh;
 		scroll-margin-top: 8rem;
 	}
 </style>

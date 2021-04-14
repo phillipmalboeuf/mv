@@ -1,12 +1,16 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
 
-	export const load = async ({ page, fetch, session, context }) => {
-		const res = await fetch('page.json')
+	export const load = async ({ fetch, session, context }) => {
+		const [page, navigation] = await Promise.all([
+      await fetch('page.json'),
+      await fetch('navigation.json')
+    ].map(res => res.json()))
 
 		return {
 			props: {
-				page: await res.json()
+				page,
+        navigation
 			}
 		}
 	}
@@ -15,14 +19,18 @@
 
 <script lang="ts">
   import Header from '$lib/Header.svelte'
+  import Footer from '$lib/Footer.svelte'
   export let page
+  export let navigation
 </script>
 
-<Header {page} />
+<Header {page} {navigation} />
 
 <main>
   <slot></slot>
 </main>
+
+<Footer {navigation} />
 
 <style lang="scss">
   :root {
@@ -51,5 +59,9 @@
   main {
     margin-top: calc(var(--gutter) * 3);
     padding: var(--gutter);
+  }
+
+  :global(p) {
+    white-space: pre-line;
   }
 </style>
