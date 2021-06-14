@@ -24,7 +24,7 @@
   export let navigation
 </script>
 
-<Header {page} {navigation} />
+<Header {page} />
 
 <main>
   <slot></slot>
@@ -35,6 +35,14 @@
 <style lang="scss">
   :root {
     --gutter: 2rem;
+    --text: white;
+    --light-1: #8EDD65;
+    --light-2: #009639;
+    --dark-0: #0B1F11;
+    --dark-1: #122F1A;
+    --dark-2: #004422;
+    --alt-1: #00C3DD;
+    --alt-2: #007DBA;
   }
 
   :global(*) {
@@ -42,8 +50,6 @@
   }
 
   :global(html) {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     scroll-behavior: smooth;
   }
@@ -51,17 +57,58 @@
 	:global(body) {
     font-family: 'Söhne';
     font-size: #{33/2}px;
+    color: var(--text);
+    background: var(--dark-1);
 
     margin: 0;
     padding: 0;
   }
 
   main {
-    margin-top: calc(var(--gutter) * 3);
+    margin-top: calc(var(--gutter) * 6);
     padding: var(--gutter);
   }
 
+  :global(h1, h2, h4, h6) {
+    font-weight: normal;
+    color: var(--light-1);
+    margin: 0 0 0.666em;
+  }
+
+  :global(h1) {
+    font-size: 90px;
+    line-height: 110px;
+  }
+
+  :global(h2) {
+    font-size: 62px;
+    line-height: 72px;
+  }
+
+  :global(h4) {
+    font-size: 25px;
+    line-height: 1.25;
+  }
+
+  :global(h6) {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--light-2);
+  }
+
   :global(p) {
+    font-size: 20px;
+    line-height: 1.25;
     white-space: pre-line;
+  }
+
+  :global(p.big) {
+    font-size: 28px;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
   }
 </style>

@@ -10,7 +10,7 @@
 </script>
 
 
-<footer>
+<footer id="contact">
   <!-- <h2>{navigation.fields.titre}</h2> -->
   <nav>
     <div>
@@ -29,8 +29,7 @@
 <style lang="scss">
   footer {
     padding: var(--gutter);
-    color: white;
-    background: black;
+    background: var(--dark-0);
   }
 
     nav {

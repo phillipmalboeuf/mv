@@ -18,26 +18,58 @@
 	import Text from '$lib/Text.svelte'
 	import Hero from '$lib/Hero.svelte'
 	import Sections from '$lib/Sections.svelte'
+	import LogoAnimation from '$lib/icons/LogoAnimation.svelte'
 
 	export let page: Entry<{
 		titre: string
-		sections: Entry<{ titre: string, id?: string, sections?: Entry<{ titre: string, id?: string, text?: RichTextContent }>[] }>[]
+		sections: Entry<{ titre: string, sousTitre: string, introduction: string, id?: string, sections?: Entry<{ titre: string, id?: string, text?: RichTextContent }>[] }>[]
 	}>
 </script>
 
 {#each page.fields.sections as section}
 {#if section.sys.contentType.sys.id === 'hero'}
-<Hero hero={section.fields} />
+<section>
+	<Hero hero={section.fields} />
+	<!-- <LogoAnimation /> -->
+</section>
 {:else if section.sys.contentType.sys.id === 'text'}
 <Text text={section.fields} />
 {:else if section.sys.contentType.sys.id === 'page'}
-<section id={section.fields.id}><Sections sections={section.fields.sections} /></section>
+<section id={section.fields.id}>
+	{#if section.fields.sousTitre}
+	<center>
+		<h6>{section.fields.titre}</h6>
+		<h2>{section.fields.sousTitre}</h2>
+	</center>
+	{/if}
+	{#if section.fields.introduction}
+	<center>
+		<p>{section.fields.introduction}</p>
+	</center>
+	{/if}
+	{#if section.fields.sections}<Sections sections={section.fields.sections} />{/if}
+</section>
 {/if}
 {/each}
 
 <style lang="scss">
 	section {
-		// min-height: 80vh;
-		scroll-margin-top: 8rem;
+		min-height: 666px;
+		scroll-margin-top: 10rem;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
+
+	// div {
+	// 	display: flex;
+	// 	align-items: center;
+	// 	column-gap: var(--gutter);
+	// }
+
+		center {
+			width: 50%;
+		}
 </style>

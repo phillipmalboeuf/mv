@@ -5,5 +5,13 @@
 	export let hero: { titre: string, text?: RichTextContent }
 </script>
 
+<div>
 <h1>{hero.titre}</h1>
 <Document body={hero.text} />
+</div>
+
+<style>
+	div {
+		width: 50%;
+	}
+</style>
