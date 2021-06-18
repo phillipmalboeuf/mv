@@ -8,6 +8,6 @@ export const contentful = createClient({
 
 export const get: RequestHandler = async (request) => {
   return {
-    body: await contentful.getEntry('3JN1Nwpa6iDk72LeUQla31', { include: 2 })
+    body: await contentful.getEntry('3JN1Nwpa6iDk72LeUQla31', { include: 3 })
   }
 }

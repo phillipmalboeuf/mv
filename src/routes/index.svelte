@@ -44,7 +44,7 @@
 	{/if}
 	{#if section.fields.introduction}
 	<center>
-		<p>{section.fields.introduction}</p>
+		<p class="big">{section.fields.introduction}</p>
 	</center>
 	{/if}
 	{#if section.fields.sections}<Sections sections={section.fields.sections} />{/if}
@@ -61,6 +61,12 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+
+		background-color: var(--dark-1);
+	}
+
+	section:nth-child(2n) {
+		background-color: var(--dark-2);
 	}
 
 	// div {

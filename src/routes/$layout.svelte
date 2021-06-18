@@ -66,13 +66,13 @@
 
   main {
     margin-top: calc(var(--gutter) * 6);
-    padding: var(--gutter);
+    // padding: var(--gutter);
   }
 
   :global(h1, h2, h4, h6) {
     font-weight: normal;
     color: var(--light-1);
-    margin: 0 0 0.666em;
+    margin: 0 0 0.333em;
   }
 
   :global(h1) {

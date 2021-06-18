@@ -14,4 +14,8 @@
 	div {
 		width: 50%;
 	}
+
+	div :global(p) {
+    font-size: 28px;
+  }
 </style>
