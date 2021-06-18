@@ -69,7 +69,7 @@
     // padding: var(--gutter);
   }
 
-  :global(h1, h2, h4, h6) {
+  :global(h1, h2, h3, h4, h6) {
     font-weight: normal;
     color: var(--light-1);
     margin: 0 0 0.333em;
@@ -85,7 +85,7 @@
     line-height: 72px;
   }
 
-  :global(h4) {
+  :global(h3, h4) {
     font-size: 25px;
     line-height: 1.25;
   }
@@ -101,6 +101,7 @@
     font-size: 20px;
     line-height: 1.25;
     white-space: pre-line;
+    margin: 0 0 0.333em;
   }
 
   :global(p.big) {
@@ -110,5 +111,30 @@
   :global(a) {
     color: inherit;
     text-decoration: none;
+  }
+
+  :global(ul, ol) {
+    padding-left: 1.333em;
+  }
+
+  :global(ul) {
+    list-style-type: none;
+  }
+
+  :global(li) {
+    position: relative;
+  }
+
+  :global(li p) {
+    margin: 0 0 0.333em;
+  }
+
+  :global(ul > li:before) {
+    content: "+";
+    position: absolute;
+    top: 0;
+    left: -1.333em;
+
+    color: var(--li-color);
   }
 </style>
