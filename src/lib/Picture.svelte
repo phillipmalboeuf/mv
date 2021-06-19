@@ -1,5 +1,7 @@
-<script>
-  export let media
+<script lang="ts">
+  import type { Asset } from 'contentful'
+
+  export let media: Asset
   export let small = false
   export let webp = false
   export let ar = undefined

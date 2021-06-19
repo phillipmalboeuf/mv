@@ -77,12 +77,12 @@
 
   :global(h1) {
     font-size: 90px;
-    line-height: 110px;
+    line-height: 1.222;
   }
 
   :global(h2) {
     font-size: 62px;
-    line-height: 72px;
+    line-height: 1.161;
   }
 
   :global(h3, h4) {

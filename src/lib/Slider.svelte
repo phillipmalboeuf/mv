@@ -6,10 +6,12 @@
 
   import Hero from './Hero.svelte'
   import Text from './Text.svelte'
+  import Etude from './Etude.svelte'
   
 
 	export let slides: Entry<{ titre: string }>[]
   export let noLines = false
+  export let spaced = true
 
   let element: HTMLDivElement
   let slider: KeenSlider
@@ -19,7 +21,8 @@
     slider = new KeenSlider(element, {
       loop: true,
       centered: true,
-      slidesPerView: 3,
+      slidesPerView: spaced ? 1.5 : 3,
+      ...spaced && { spacing: 20 },
       slideChanged: instance => {
         current = instance.details().relativeSlide
       }
@@ -32,11 +35,13 @@
 <div class="container">
   <div class="keen-slider" bind:this={element}>
     {#each slides as slide, i}
-    <article class="keen-slider__slide" on:click={() => slider.moveToSlideRelative(i)}>
+    <article class="keen-slider__slide{current === i ? ' current' : ''}" on:click={() => slider.moveToSlideRelative(i)}>
       {#if slide.sys.contentType.sys.id === 'hero'}
       <Hero hero={slide.fields} />
       {:else if slide.sys.contentType.sys.id === 'text'}
       <Text text={slide.fields} />
+      {:else if slide.sys.contentType.sys.id === 'item'}
+      <Etude etude={slide.fields} />
       {/if}
     </article>
     {/each}
@@ -75,11 +80,15 @@
 
   .container {
     position: relative;
+    margin: 4rem 0;
   }
 
-    .slide {
-      /* background: white; */
-      /* cursor: pointer; */
+    .keen-slider__slide {
+      transition: opacity 666ms;
+    }
+
+    .keen-slider__slide:not(.current) {
+      opacity: 0.5;
     }
 
     .lines {
@@ -96,6 +105,7 @@
         overflow: hidden;
         border: none;
         opacity: 0;
+        transition: opacity 666ms;
       }
 
         .line.active {

@@ -62,7 +62,7 @@
 		justify-content: center;
 		align-items: center;
 
-		padding: var(--gutter);
+		padding: var(--gutter) 0;
 		background-color: var(--dark-1);
 	}
 
