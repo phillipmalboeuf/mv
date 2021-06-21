@@ -30,7 +30,7 @@
 {#if section.sys.contentType.sys.id === 'hero'}
 <section>
 	<Hero hero={section.fields} />
-	<!-- <LogoAnimation /> -->
+	<LogoAnimation />
 </section>
 {:else if section.sys.contentType.sys.id === 'text'}
 <Text text={section.fields} />
