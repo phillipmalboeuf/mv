@@ -69,7 +69,7 @@
     // padding: var(--gutter);
   }
 
-  :global(h1, h2, h3, h4, h6) {
+  :global(h1, h2, h3, h4, h5, h6) {
     font-weight: normal;
     color: var(--light-1);
     margin: 0 0 0.333em;
@@ -85,7 +85,7 @@
     line-height: 1.161;
   }
 
-  :global(h3, h4) {
+  :global(h3, h4, h5) {
     font-size: 25px;
     line-height: 1.25;
   }

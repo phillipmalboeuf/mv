@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import type { Entry, RichTextContent } from 'contentful'
+	import type { Asset, Entry, RichTextContent } from 'contentful'
 	import Text from '$lib/Text.svelte'
 	import Hero from '$lib/Hero.svelte'
 	import Sections from '$lib/Sections.svelte'
@@ -22,7 +22,7 @@
 
 	export let page: Entry<{
 		titre: string
-		sections: Entry<{ titre: string, sousTitre: string, introduction: string, id?: string, sections?: Entry<{ titre: string, id?: string, text?: RichTextContent }>[] }>[]
+		sections: Entry<{ titre: string, sousTitre: string, introduction: string, id?: string, background: Asset, sections?: Entry<{ titre: string, id?: string, text?: RichTextContent }>[] }>[]
 	}>
 </script>
 
@@ -35,11 +35,15 @@
 {:else if section.sys.contentType.sys.id === 'text'}
 <Text text={section.fields} />
 {:else if section.sys.contentType.sys.id === 'page'}
-<section id={section.fields.id}>
-	{#if section.fields.sousTitre}
+<section id={section.fields.id} style={section.fields.background && `background-image: url(${section.fields.background.fields.file.url}); background-position: center; background-size: contain; background-repeat: no-repeat;`} class:left={section.fields.sections?.length > 0 && (section.fields.sections[0].sys.contentType.sys.id === 'parcours' || section.fields.sections[0].sys.contentType.sys.id === 'newsletterForm')}>
+	{#if section.fields.titre && section.fields.sousTitre}
 	<center>
 		<h6>{section.fields.titre}</h6>
 		<h2>{section.fields.sousTitre}</h2>
+	</center>
+	{:else if section.fields.titre}
+	<center>
+		<h2>{section.fields.titre}</h2>
 	</center>
 	{/if}
 	{#if section.fields.introduction}
@@ -78,5 +82,15 @@
 
 		center {
 			width: 50%;
+			padding: 0 var(--gutter);
+		}
+
+		section.left {
+			align-items: flex-start;
+		}
+
+		section.left center {
+			width: 50%;
+			text-align: left;
 		}
 </style>

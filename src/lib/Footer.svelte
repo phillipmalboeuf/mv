@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Entry, RichTextContent } from 'contentful'
   import Document from '$lib/document/index.svelte'
+  import Logo from './icons/Logo.svelte'
 
   export let navigation: Entry<{
     sinscrire: string,
@@ -11,7 +12,7 @@
 
 
 <footer id="contact">
-  <!-- <h2>{navigation.fields.titre}</h2> -->
+  <Logo />
   <nav>
     <div>
       <Document body={navigation.fields.gauche} />
@@ -21,7 +22,7 @@
     </div>
     <div>
       <Document body={navigation.fields.droite} />
-      <a class="button" href={navigation.fields.lienInfolettre}>{navigation.fields.sinscrire}</a>
+      <!-- <a class="button" href={navigation.fields.lienInfolettre}>{navigation.fields.sinscrire}</a> -->
     </div>
   </nav>
 </footer>
@@ -35,6 +36,7 @@
     nav {
       display: flex;
       justify-content: space-between;
+      padding: 6rem 0;
 
       a {
         padding: 0.5rem;
