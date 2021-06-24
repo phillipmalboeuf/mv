@@ -47,7 +47,8 @@ import { couleur } from './helpers';
 			padding-top: 6rem;
 		}
 
-			article :global(h2, h4) {
+			article :global(h2),
+			article :global(h4) {
 				font-size: 40px;
 				color: var(--color);
 				margin-left: calc(var(--gutter) * -1);

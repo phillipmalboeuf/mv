@@ -2,11 +2,12 @@
 	import type { Entry, RichTextContent } from 'contentful'
   import Columns from './Columns.svelte'
   import Hero from './Hero.svelte'
+  import NewsletterForm from './NewsletterForm.svelte'
   import Parcours from './Parcours.svelte'
   import Slider from './Slider.svelte'
   import Text from './Text.svelte'
 
-	export let sections: Entry<{ titre: string, id?: string, text?: RichTextContent, slides?: Entry<any>[], colonnes?: Entry<any>[], ligne?: boolean, animations?: Entry<any>[] }>[]
+	export let sections: Entry<any>[]
 </script>
 
 
@@ -21,5 +22,7 @@
 <Columns columns={section.fields.colonnes} />
 {:else if section.sys.contentType.sys.id === 'parcours'}
 <Parcours titre={section.fields.titre} animations={section.fields.animations} />
+{:else if section.sys.contentType.sys.id === 'newsletterForm'}
+<NewsletterForm form={section.fields} />
 {/if}
 {/each}

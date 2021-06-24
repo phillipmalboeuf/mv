@@ -56,7 +56,7 @@
 
 	:global(body) {
     font-family: 'Söhne';
-    font-size: #{33/2}px;
+    font-size: 16px;
     color: var(--text);
     background: var(--dark-1);
 
@@ -137,4 +137,30 @@
 
     color: var(--li-color);
   }
+
+  :global(button[type="submit"]) {
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 1;
+    color: var(--text);
+    background: var(--light-2);
+    border: none;
+    border-radius: 1em;
+    padding: 0.5em 1.5em;
+  }
+
+  :global(input) {
+    font-size: 25px;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    margin: 0 0 1em;
+    padding: 0.5em;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--light-1);
+  }
+
+  :global(::-webkit-input-placeholder, ::-webkit-input-placeholder) { color: var(--text); }
+  :global(:-moz-placeholder, :-moz-placeholder) { color: var(--text); }
 </style>

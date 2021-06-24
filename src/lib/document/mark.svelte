@@ -8,6 +8,8 @@
   <em><svelte:self mark={{ ...mark, marks: mark.marks.slice(1) }} /></em>
   {:else if mark.marks[0].type === 'bold'}
   <strong><svelte:self mark={{ ...mark, marks: mark.marks.slice(1) }} /></strong>
+  {:else if mark.marks[0].type === 'underline'}
+  <em><svelte:self mark={{ ...mark, marks: mark.marks.slice(1) }} /></em>
   {:else if mark.marks[0].type === 'code'}
   {@html mark.value}
   {/if}
@@ -27,3 +29,11 @@
   {#each mark.content as mark}<svelte:self mark={mark} />{/each}
 </a>
 {/if}
+
+<style>
+  em {
+    font-style: normal;
+    text-decoration: underline;
+    color: var(--light-1);
+  }
+</style>

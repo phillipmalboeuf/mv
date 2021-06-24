@@ -35,20 +35,17 @@
 {:else if section.sys.contentType.sys.id === 'text'}
 <Text text={section.fields} />
 {:else if section.sys.contentType.sys.id === 'page'}
-<section id={section.fields.id} style={section.fields.background && `background-image: url(${section.fields.background.fields.file.url}); background-position: center; background-size: contain; background-repeat: no-repeat;`} class:left={section.fields.sections?.length > 0 && (section.fields.sections[0].sys.contentType.sys.id === 'parcours' || section.fields.sections[0].sys.contentType.sys.id === 'newsletterForm')}>
+<section id={section.fields.id} style={section.fields.background && `background-image: url(${section.fields.background.fields.file.url}); background-position: center; background-size: contain; background-repeat: no-repeat;`} class:left={section.fields.sections?.length > 0 && (section.fields.sections[0].sys.contentType.sys.id === 'parcours' || section.fields.sections[0].sys.contentType.sys.id === 'newsletterForm')} class:row={section.fields.sections?.length > 0 && (section.fields.sections[0].sys.contentType.sys.id === 'newsletterForm')}>
 	{#if section.fields.titre && section.fields.sousTitre}
 	<center>
 		<h6>{section.fields.titre}</h6>
 		<h2>{section.fields.sousTitre}</h2>
+		{#if section.fields.introduction}<p class="big">{section.fields.introduction}</p>{/if}
 	</center>
 	{:else if section.fields.titre}
 	<center>
 		<h2>{section.fields.titre}</h2>
-	</center>
-	{/if}
-	{#if section.fields.introduction}
-	<center>
-		<p class="big">{section.fields.introduction}</p>
+		{#if section.fields.introduction}<p class="big">{section.fields.introduction}</p>{/if}
 	</center>
 	{/if}
 	{#if section.fields.sections}<Sections sections={section.fields.sections} />{/if}
@@ -70,6 +67,10 @@
 		background-color: var(--dark-1);
 	}
 
+		section.row {
+			flex-direction: row;
+		}
+
 	section:nth-child(2n) {
 		background-color: var(--dark-2);
 	}
@@ -85,7 +86,7 @@
 			padding: 0 var(--gutter);
 		}
 
-		section.left {
+		section.left:not(.row) {
 			align-items: flex-start;
 		}
 
