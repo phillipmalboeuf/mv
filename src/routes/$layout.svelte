@@ -52,6 +52,7 @@
   :global(html) {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
 	:global(body) {
@@ -59,6 +60,7 @@
     font-size: 16px;
     color: var(--text);
     background: var(--dark-1);
+    overflow-x: hidden;
 
     margin: 0;
     padding: 0;

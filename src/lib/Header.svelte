@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Entry } from 'contentful'
   import Logo from './icons/Logo.svelte'
+import Menu from './Menu.svelte'
 
   export let page: Entry<{ titre: string, sections: Entry<{ titre: string, id?: string }>[] }>
   // export let navigation: Entry<{ contactezNous: string, courriel: string }>
@@ -8,7 +9,9 @@
 
 
 <header>
-  <Logo />
+  <a href="/" class="logo">
+    <Logo />
+  </a>
   <nav>
     {#each page.fields.sections.filter(section => section.fields.id) as section}
     <a href={`#${section.fields.id}`}>{section.fields.titre}</a>
@@ -16,7 +19,7 @@
     <a href={`#contact`}>Contact</a>
   </nav>
 
-  <!-- <a href="mailto:{navigation.fields.courriel}">{navigation.fields.contactezNous}</a> -->
+  <Menu sections={page.fields.sections} />
 </header>
 
 <style lang="scss">
@@ -37,11 +40,20 @@
     // -webkit-backdrop-filter: blur(6px);
   }
 
+  a.logo {
+    position: relative;
+    z-index: 2;
+  }
+
     nav {
       display: flex;
 
       a {
         padding: 0.5rem 1rem;
+      }
+
+      @media (max-width: 900px) {
+       display: none;
       }
     }
 </style>
