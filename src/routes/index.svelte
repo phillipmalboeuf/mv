@@ -30,7 +30,6 @@
 {#if section.sys.contentType.sys.id === 'hero'}
 <section>
 	<Hero hero={section.fields} />
-	<LogoAnimation />
 </section>
 {:else if section.sys.contentType.sys.id === 'text'}
 <Text text={section.fields} />
@@ -44,7 +43,7 @@
 	</center>
 	{:else if section.fields.titre}
 	<center>
-		<h2>{section.fields.titre}</h2>
+		{#if section.fields.id !== 'a-propos'}<h2>{section.fields.titre}</h2>{/if}
 		{#if section.fields.introduction}<p class="big">{section.fields.introduction}</p>{/if}
 	</center>
 	{/if}
@@ -55,6 +54,7 @@
 
 <style lang="scss">
 	section {
+		position: relative;
 		min-height: 666px;
 		scroll-margin-top: 10rem;
 
@@ -63,7 +63,7 @@
 		justify-content: center;
 		align-items: center;
 
-		padding: var(--gutter) 0;
+		padding: 10vw 0;
 		background-color: var(--dark-1);
 	}
 

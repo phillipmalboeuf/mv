@@ -67,7 +67,7 @@
   }
 
   main {
-    margin-top: calc(var(--gutter) * 6);
+    margin-top: calc(var(--gutter) * 5);
     // padding: var(--gutter);
   }
 
@@ -138,6 +138,12 @@
     left: -1.333em;
 
     color: var(--li-color);
+  }
+
+  :global(button) {
+    cursor: pointer;
+    border: none;
+    background: transparent;
   }
 
   :global(button[type="submit"]) {

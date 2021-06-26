@@ -7,6 +7,7 @@
 
   const intersect: IntersectionObserverCallback = (entries) => {
     entries.forEach((entry) => {
+      console.log(entry.isIntersecting)
       show = entry.isIntersecting
     })
   }
@@ -16,7 +17,7 @@
     let options = {
       root: null,
       rootMargin: "-50% 0px 0px",
-      threshold: 1
+      threshold: 0.5
     }
 
     const observer = new IntersectionObserver(intersect, options)
@@ -26,15 +27,14 @@
   })
 </script>
 
-<!-- <button on:click={() => show = !show}>show</button> -->
-<svg width="207" height="207" viewBox="0 0 207 207" fill="none" xmlns="http://www.w3.org/2000/svg" bind:this={element}>
+<svg width="288" height="288" viewBox="0 0 207 207" fill="none" xmlns="http://www.w3.org/2000/svg" bind:this={element}>
 {#if show}
-<path in:draw={{ delay: 100, duration: 666 }} out:draw={{ duration: 666 }} d="M206 69L172 69L138 69L138 35L138 1" stroke="#8EDE65" stroke-width="46" stroke-miterlimit="1.80775" stroke-linejoin="bevel"/>
+<path in:draw={{ delay: 100, duration: 666 }} out:draw={{ duration: 666 }} d="M206 69L172 69L138 69L138 35L138 1" stroke="#8EDE65" stroke-width="46"/>
 <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="207" height="207">
 <path d="M69.5 0.898418L206.602 138L69.5 138L69.5 0.898418Z" fill="black"/>
 </mask>
 <g mask="url(#mask0)">
-<path in:draw={{ duration: 666 }} out:draw={{ delay: 100, duration: 666 }} d="M70 69.5H104H138V103.5V137.5" stroke="#05C3DE" stroke-width="46" stroke-miterlimit="1.80775"/>
+<path in:draw={{ duration: 666 }} out:draw={{ delay: 100, duration: 666 }} d="M70 69.5H104H138V103.5V137.5" stroke="#05C3DE" stroke-width="46" />
 </g>
 {/if}
 </svg>
