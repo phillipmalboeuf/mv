@@ -12,14 +12,23 @@
 {#if text.body}<Document body={text.body} />{/if}
 </center>
 
-<style>
+<style lang="scss">
 	center {
 		width: 88%;
 		margin: 0 auto;
+
+		@media (max-width: 900px) {
+			width: 100%;
+		}
 	}
 
 	figure {
 		padding: var(--gutter);
-		max-width: 33rem;
+		margin: 0;
+		max-width: 25rem;
+
+		@media (max-width: 900px) {
+			// padding: 0;
+		}
 	}
 </style>

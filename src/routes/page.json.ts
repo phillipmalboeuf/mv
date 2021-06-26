@@ -1,4 +1,4 @@
-import pkg from 'contentful'
+import * as pkg from 'contentful'
 const {createClient} = pkg
 import type { RequestHandler } from '@sveltejs/kit'
 

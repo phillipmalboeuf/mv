@@ -25,6 +25,11 @@
       ...spaced && { spacing: 20 },
       slideChanged: instance => {
         current = instance.details().relativeSlide
+      },
+      breakpoints: {
+        '(max-width: 900px)': {
+          slidesPerView: 1.25
+        }
       }
     })
 
@@ -57,30 +62,15 @@
 </div>
 
 <style>
+  .container {
+    position: relative;
+    margin: 4rem 0 2rem;
+    width: 100%;
+  }
+
   .keen-slider {
     cursor: ew-resize;
     padding-bottom: 3rem;
-  }
-
-  /* .slider::-webkit-scrollbar {
-    height: 4px;
-    cursor: pointer;
-  }
-
-  .slider::-webkit-scrollbar-thumb {
-    background: var(--light-1);
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-    cursor: pointer;
-  } */
-
-  
-
-  .container {
-    position: relative;
-    margin: 4rem 0;
   }
 
     .keen-slider__slide {

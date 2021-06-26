@@ -34,11 +34,16 @@
 </button>
 
 
-<style>
+<style lang="scss">
 	article {
 		display: flex;
 		align-items: center;
 		padding: 0 calc(var(--gutter) + 5vw) var(--gutter);
+
+		@media (max-width: 900px) {
+			flex-direction: column-reverse;
+			padding: 0 var(--gutter) var(--gutter);
+		}
 	}
 
 	div,
@@ -48,6 +53,10 @@
 
 	div :global(p) {
     font-size: 28px;
+
+		@media (max-width: 900px) {
+			font-size: 20px;
+		}
   }
 
 	button {

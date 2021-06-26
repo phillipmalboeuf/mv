@@ -10,9 +10,10 @@
   <button type="submit">{form.mabonner}</button>
 </form>
 
-<style>
+<style lang="scss">
   form {
-    width: 666px;
+    width: 100%;
     padding: 6rem var(--gutter) var(--gutter);
+    max-width: 666px;
   }
 </style>

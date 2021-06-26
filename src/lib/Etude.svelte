@@ -2,7 +2,7 @@
 	import type { Asset, Entry, RichTextContent } from 'contentful'
   import Document from '$lib/document/index.svelte'
 	import Picture from './Picture.svelte'
-import { couleur } from './helpers';
+	import { couleur } from './helpers'
 
 	export let etude: { titre: string, couleur?: string, text?: RichTextContent, sousText?: RichTextContent, photo?: Asset }
 </script>
@@ -16,7 +16,7 @@ import { couleur } from './helpers';
 	</figcaption>
 </figure>
 
-<style>
+<style lang="scss">
 	figure {
 		color: var(--dark-0);
 		background-color: var(--text);
@@ -24,6 +24,11 @@ import { couleur } from './helpers';
 		display: flex;
 		align-items: stretch;
 		margin: 0;
+
+		@media (max-width: 900px) {
+			flex-direction: column;
+			align-items: unset;
+		}
 	}
 
 		figure :global(img) {
@@ -33,14 +38,28 @@ import { couleur } from './helpers';
 
 		figure :global(picture) {
 			width: 40%;
+
+			@media (max-width: 900px) {
+				width: 100%;
+				height: 20rem;
+				order: 99;
+			}
 		}
 
 		figcaption {
 			width: 60%;
+
+			@media (max-width: 900px) {
+				width: 100%;
+			}
 		}
 
 		article, aside {
 			padding: var(--gutter) calc(var(--gutter) + 2vw);
+
+			@media (max-width: 900px) {
+				padding: var(--gutter);
+			}
 		}
 
 		article {
@@ -52,30 +71,37 @@ import { couleur } from './helpers';
 				font-size: 40px;
 				color: var(--color);
 				margin-left: calc(var(--gutter) * -1);
+
+				@media (max-width: 900px) {
+					font-size: 30px;
+					margin-left: -1rem;
+					margin-bottom: 2rem;
+				}
 			}
 
 			article :global(h6) {
 				font-size: 18px;
 				color: var(--color-dark);
 				margin-left: calc(var(--gutter) * -1);
+
+				@media (max-width: 900px) {
+					font-size: 14px;
+					margin-left: -1rem;
+				}
 			}
 
 			/* article :global(p) {
 				margin: 0 var(--gutter);
 			} */
 
-			:global(strong) {
+			figcaption :global(strong) {
 				color: var(--color-dark);
 				font-weight: 400;
 			}
 
-			:global(p) {
-				font-size: 18px;
-			}
-
 			h6 {
 				position: absolute;
-				top: var(--gutter);
+				top: 1rem;
 				right: 0;
 				padding: 0.5rem 0.5rem 0.5rem 1.5rem;
 				font-size: 13px;

@@ -8,23 +8,21 @@
 </script>
 
 <section>
-  <h5>{titre}</h5>
+  <h5>{titre.replace('\\', '\n')}</h5>
 
   <div class="animations">
     {#each animations as animation, i}
-    <Animation>
-      <figure>
-        <figcaption>
-          {#if animation.fields.titre}
-          <h6>{animation.fields.titre}</h6>
-          {/if}
-        </figcaption>
-        <svg viewBox="0 0 337 271" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.14941 5.49097H187C255.078 5.49097 331.623 51.6799 331.623 139.144C331.623 226.608 255.078 265.918 187 265.918H35.6321" stroke="#009639" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <Picture media={animation.fields.media} />
-      </figure>
-    </Animation>
+    <figure>
+      <figcaption>
+        {#if animation.fields.titre}
+        <h6>{animation.fields.titre}</h6>
+        {/if}
+      </figcaption>
+      <svg viewBox="0 0 337 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.14941 5.49097H187C255.078 5.49097 331.623 51.6799 331.623 139.144C331.623 226.608 255.078 265.918 187 265.918H35.6321" stroke="#009639" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <Picture media={animation.fields.media} />
+    </figure>
     {/each}
   </div>
 </section>
@@ -32,12 +30,12 @@
 <style>
   section {
     width: 100%;
-    display: flex;
-    margin-bottom: 8rem;
   }
 
   h5 {
     padding: 6rem var(--gutter);
+    position: sticky;
+    top: 10rem;
   }
 
   h6 {
@@ -45,6 +43,11 @@
     color: var(--light-1);
     margin: 0 var(--gutter);
   }
+
+    .animations {
+      width: 666px;
+      margin: -20rem calc(var(--gutter) + 12vw) 0 auto;
+    }
 
     figure {
       position: relative;

@@ -43,6 +43,10 @@
     --dark-2: #004422;
     --alt-1: #00C3DD;
     --alt-2: #007DBA;
+
+    @media (max-width: 900px) {
+      --gutter: 1.66rem;
+    }
   }
 
   :global(*) {
@@ -74,22 +78,35 @@
   :global(h1, h2, h3, h4, h5, h6) {
     font-weight: normal;
     color: var(--light-1);
+    white-space: pre-line;
     margin: 0 0 0.333em;
   }
 
   :global(h1) {
     font-size: 90px;
     line-height: 1.222;
+
+    @media (max-width: 900px) {
+      font-size: 45px;
+    }
   }
 
   :global(h2) {
     font-size: 62px;
     line-height: 1.161;
+
+    @media (max-width: 900px) {
+      font-size: 35px;
+    }
   }
 
   :global(h3, h4, h5) {
     font-size: 25px;
     line-height: 1.25;
+
+    @media (max-width: 900px) {
+      font-size: 20px;
+    }
   }
 
   :global(h6) {
@@ -104,10 +121,18 @@
     line-height: 1.25;
     white-space: pre-line;
     margin: 0 0 0.333em;
+
+    @media (max-width: 900px) {
+      font-size: 16px;
+    }
   }
 
   :global(p.big) {
     font-size: 28px;
+
+    @media (max-width: 900px) {
+      font-size: 20px;
+    }
   }
 
   :global(a) {

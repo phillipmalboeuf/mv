@@ -69,6 +69,10 @@
 
 		section.row {
 			flex-direction: row;
+
+			@media (max-width: 900px) {
+				flex-direction: column;
+			}
 		}
 
 	section:nth-child(2n) {
@@ -84,14 +88,18 @@
 		center {
 			width: 50%;
 			padding: 0 var(--gutter);
+
+			@media (max-width: 900px) {
+				width: 100%;
+			}
 		}
 
 		section.left:not(.row) {
 			align-items: flex-start;
+			padding: 10vw 4vw;
 		}
 
 		section.left center {
-			width: 50%;
 			text-align: left;
 		}
 </style>

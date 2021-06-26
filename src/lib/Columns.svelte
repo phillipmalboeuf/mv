@@ -17,11 +17,16 @@
   {/each}
 </div>
 
-<style>
+<style lang="scss">
   .columns {
     display: flex;
-    column-gap: calc(var(--gutter) + 4.1666vw);
-    padding: 4rem calc(var(--gutter) + 4.1666vw);
+    column-gap: calc(var(--gutter) + 4vw);
+    row-gap: var(--gutter);
+    padding: 4rem calc(var(--gutter) + 4vw);
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
   }
 
     article {
@@ -35,5 +40,9 @@
     svg {
       width: 100%;
       margin: var(--gutter) 0;
+
+      @media (max-width: 900px) {
+        margin-top: 1rem;
+      }
     }
 </style>

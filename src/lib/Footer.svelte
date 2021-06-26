@@ -12,9 +12,9 @@
 
 
 <footer id="contact">
-  <span class="logo">
+  <div class="logo">
     <Logo />
-  </span>
+  </div>
   <nav>
     <div>
       <Document body={navigation.fields.gauche} />
@@ -51,8 +51,18 @@
     background: var(--dark-0);
   }
 
+  footer :global(h2),
+  footer :global(h4) {
+    color: var(--white);
+  }
+
     .logo {
-      padding: 0 calc(var(--gutter) + 5vw);
+      padding: 0 calc(var(--gutter) + 4vw);
+      margin: 2rem 0;
+
+      @media (max-width: 900px) {
+        padding: 0;
+      }
     }
 
     nav {
@@ -65,7 +75,16 @@
       }
 
       div {
-        padding: 0 calc(var(--gutter) + 5vw);
+        padding: 0 calc(var(--gutter) + 4vw);
+
+        @media (max-width: 900px) {
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+        row-gap: var(--gutter);
       }
     }
 </style>

@@ -43,6 +43,14 @@ import Menu from './Menu.svelte'
   a.logo {
     position: relative;
     z-index: 2;
+
+    @media (max-width: 900px) {
+      max-width: 10rem;
+    }
+
+    :global(svg) {
+      width: 100%;
+    }
   }
 
     nav {
