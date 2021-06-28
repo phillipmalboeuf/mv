@@ -1,8 +1,9 @@
-import * as pkg from 'contentful'
-const {createClient} = pkg
+import { dev } from '$app/env'
+
+import c, { createClient } from 'contentful'
 import type { RequestHandler } from '@sveltejs/kit'
 
-export const contentful = createClient({
+export const contentful = (dev ? createClient : c.createClient)({
   space: '7jkgm436l4wo',
   accessToken: 'ugKXzeLF1K-MNDWUUOAsQ_aNbvD0i-JiQYUUNptCWj4'
 })
