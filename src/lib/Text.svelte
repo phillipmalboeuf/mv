@@ -14,7 +14,7 @@
 
 <style lang="scss">
 	center {
-		width: 88%;
+		width: 75%;
 		margin: 0 auto;
 
 		@media (max-width: 900px) {

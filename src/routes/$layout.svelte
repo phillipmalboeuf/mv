@@ -38,9 +38,11 @@
     --text: white;
     --light-1: #8EDD65;
     --light-2: #009639;
+    --light-faded: #{fade-out($color: #009639, $amount: 0.35)};
     --dark-0: #0B1F11;
     --dark-1: #122F1A;
     --dark-2: #004422;
+    --dark-faded: #{fade-out($color: #122F1A, $amount: 0.1)};
     --alt-1: #00C3DD;
     --alt-2: #007DBA;
 
@@ -56,7 +58,10 @@
   :global(html) {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     scroll-behavior: smooth;
-    overflow-x: hidden;
+
+    @media (max-width: 900px) {
+      overflow-x: hidden;
+    }
   }
 
 	:global(body) {
@@ -138,6 +143,15 @@
   :global(a) {
     color: inherit;
     text-decoration: none;
+    
+    &:hover,
+    &:focus {
+      color: var(--light-1);
+
+      :global(em) {
+        color: var(--light-2);
+      }
+    }
   }
 
   :global(ul, ol) {
@@ -163,6 +177,7 @@
     left: -1.333em;
 
     color: var(--li-color);
+    font-weight: bold;
   }
 
   :global(button) {
@@ -180,6 +195,11 @@
     border: none;
     border-radius: 1em;
     padding: 0.5em 1.5em;
+
+    &:hover,
+    &:focus {
+      background: var(--light-faded);
+    }
   }
 
   :global(input) {
@@ -191,6 +211,7 @@
     padding: 0.5em;
     background: transparent;
     border: none;
+    color: var(--text);
     border-bottom: 1px solid var(--light-1);
   }
 

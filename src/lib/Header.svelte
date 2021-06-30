@@ -35,9 +35,9 @@ import Menu from './Menu.svelte'
     justify-content: space-between;
 
     padding: var(--gutter);
-    background: var(--dark-1);
-    // backdrop-filter: blur(6px);
-    // -webkit-backdrop-filter: blur(6px);
+    background: var(--dark-faded);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   a.logo {

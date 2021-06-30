@@ -35,14 +35,12 @@
 
     h3 {
       text-align: center;
+      width: 88%;
+      margin: 0 auto 1rem;
     }
 
     svg {
       width: 100%;
-      margin: var(--gutter) 0;
-
-      @media (max-width: 900px) {
-        margin-top: 1rem;
-      }
+      margin: 1rem 0 2rem;
     }
 </style>

@@ -30,7 +30,7 @@
 </a>
 {/if}
 
-<style>
+<style lang="scss">
   em {
     font-style: normal;
     text-decoration: underline;
