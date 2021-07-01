@@ -47,13 +47,17 @@
 
 <style lang="scss">
   footer {
-    padding: var(--gutter);
+    padding: calc(var(--gutter) * 2) var(--gutter) var(--gutter);
     background: var(--dark-0);
   }
 
   footer :global(h2),
   footer :global(h4) {
     color: var(--white);
+  }
+
+  footer :global(h2) {
+    font-size: 33px;
   }
 
     .logo {

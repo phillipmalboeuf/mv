@@ -22,7 +22,7 @@
     display: flex;
     column-gap: calc(var(--gutter) + 4vw);
     row-gap: var(--gutter);
-    padding: 4rem calc(var(--gutter) + 4vw);
+    padding: 4rem calc(var(--gutter) + 4vw) 0;
 
     @media (max-width: 900px) {
       flex-direction: column;
