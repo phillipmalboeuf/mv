@@ -65,7 +65,7 @@
       width: 100vw;
       height: 100vh;
       overflow-y: auto;
-      padding: 12rem 1rem 2rem;
+      padding: 10rem 1rem 2rem;
       background: var(--dark-0);
 
       a {

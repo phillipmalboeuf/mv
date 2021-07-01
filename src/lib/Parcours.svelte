@@ -27,7 +27,7 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
   section {
     width: 100%;
   }
@@ -36,6 +36,10 @@
     padding: 6rem var(--gutter);
     position: sticky;
     top: 10rem;
+
+    @media (max-width: 900px) {
+      padding: 3rem var(--gutter);
+    }
   }
 
   h6 {

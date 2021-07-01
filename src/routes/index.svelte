@@ -65,6 +65,10 @@
 
 		padding: 10vw 0;
 		background-color: var(--dark-1);
+
+		@media (max-width: 900px) {
+			padding: 10vh 0;
+		}
 	}
 
 		section.row {

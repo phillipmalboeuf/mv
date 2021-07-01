@@ -21,7 +21,7 @@
   .columns {
     display: flex;
     column-gap: calc(var(--gutter) + 4vw);
-    row-gap: var(--gutter);
+    row-gap: 4rem;
     padding: 4rem calc(var(--gutter) + 4vw) 0;
 
     @media (max-width: 900px) {
@@ -42,5 +42,9 @@
     svg {
       width: 100%;
       margin: 1rem 0 2rem;
+
+      @media (max-width: 900px) {
+        margin: 0.66rem 0 1rem;
+      }
     }
 </style>

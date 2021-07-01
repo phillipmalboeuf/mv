@@ -38,7 +38,7 @@
 </script>
 
 <div class="container">
-  <div class="keen-slider" bind:this={element}>
+  <div class="keen-slider" class:noLines bind:this={element}>
     {#each slides as slide, i}
     <article class="keen-slider__slide{current === i ? ' current' : ''}" on:click={() => slider.moveToSlideRelative(i)}>
       {#if slide.sys.contentType.sys.id === 'hero'}
@@ -61,7 +61,7 @@
   {/if}
 </div>
 
-<style>
+<style lang="scss">
   .container {
     position: relative;
     margin: 4rem 0 2rem;
@@ -71,6 +71,10 @@
   .keen-slider {
     cursor: ew-resize;
     padding-bottom: 3rem;
+
+    &.noLines {
+      padding-bottom: 0;
+    }
   }
 
     .keen-slider__slide {

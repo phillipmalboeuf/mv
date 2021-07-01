@@ -47,7 +47,7 @@
     --alt-2: #007DBA;
 
     @media (max-width: 900px) {
-      --gutter: 1.66rem;
+      --gutter: 1rem;
     }
   }
 
@@ -200,6 +200,10 @@
     &:focus {
       background: var(--light-faded);
     }
+
+    @media (max-width: 900px) {
+      font-size: 20px;
+    }
   }
 
   :global(input) {
@@ -213,6 +217,10 @@
     border: none;
     color: var(--text);
     border-bottom: 1px solid var(--light-1);
+
+    @media (max-width: 900px) {
+      font-size: 20px;
+    }
   }
 
   :global(::-webkit-input-placeholder, ::-webkit-input-placeholder) { color: var(--text); }

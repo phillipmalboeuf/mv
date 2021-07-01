@@ -20,6 +20,11 @@
 		@media (max-width: 900px) {
 			width: 100%;
 		}
+
+		:global(h6) {
+			margin-top: 2rem;
+			color: var(--light-1);
+		}
 	}
 
 	figure {

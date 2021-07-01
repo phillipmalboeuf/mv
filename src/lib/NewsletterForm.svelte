@@ -15,5 +15,14 @@
     width: 100%;
     padding: 6rem var(--gutter) var(--gutter);
     max-width: 666px;
+
+    @media (max-width: 900px) {
+      padding-top: 3rem;
+
+      button {
+        display: block;
+        margin: 2rem auto 0;
+      }
+    }
   }
 </style>

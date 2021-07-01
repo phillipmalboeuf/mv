@@ -83,12 +83,16 @@
 
         @media (max-width: 900px) {
           padding: 0;
+
+          :global(img) {
+            max-width: 66%;
+          }
         }
       }
 
       @media (max-width: 900px) {
         flex-direction: column;
-        row-gap: var(--gutter);
+        row-gap: 2rem;
       }
     }
 </style>
