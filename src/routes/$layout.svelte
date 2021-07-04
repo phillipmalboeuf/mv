@@ -33,6 +33,22 @@
 <Footer {navigation} />
 
 <style lang="scss">
+  @font-face {
+    font-family: 'Söhne';
+    src: url('/soehne-web-buch.woff') format('woff'), url('/soehne-web-buch.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Söhne';
+    src: url('/soehne-web-kraftig.woff') format('woff'), url('/soehne-web-kraftig.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --gutter: 2rem;
     --text: white;
@@ -65,7 +81,7 @@
   }
 
 	:global(body) {
-    font-family: 'Söhne';
+    font-family: 'Söhne', sans-serif;
     font-size: 16px;
     color: var(--text);
     background: var(--dark-1);
@@ -116,7 +132,7 @@
 
   :global(h6) {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 1.25;
     color: var(--light-2);
   }
@@ -217,6 +233,7 @@
     border: none;
     color: var(--text);
     border-bottom: 1px solid var(--light-1);
+    border-radius: 0;
 
     @media (max-width: 900px) {
       font-size: 20px;

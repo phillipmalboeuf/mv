@@ -96,7 +96,6 @@
 
 			figcaption :global(strong) {
 				color: var(--color-dark);
-				font-weight: 400;
 			}
 
 			h6 {
