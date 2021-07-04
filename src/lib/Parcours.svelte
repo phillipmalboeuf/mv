@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { Asset, Entry } from 'contentful'
-  import Animation from './Animation.svelte'
   import Picture from './Picture.svelte'
 
   export let titre: string
-	export let animations: Entry<{ titre: string, media: Asset }>[]
+	export let animations: Entry<{ titre: string, media: Asset, marges: string, animation: string }>[]
 </script>
 
 <section>
@@ -18,10 +17,12 @@
         <h6>{animation.fields.titre}</h6>
         {/if}
       </figcaption>
-      <svg viewBox="0 0 337 271" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.14941 5.49097H187C255.078 5.49097 331.623 51.6799 331.623 139.144C331.623 226.608 255.078 265.918 187 265.918H35.6321" stroke="#009639" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg viewBox="0 0 507 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 5H356.851C424.929 5 501.474 51.1889 501.474 138.653C501.474 226.117 424.929 265.427 356.851 265.427H5" stroke="#009639" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <Picture media={animation.fields.media} />
+      <div class="picture {animation.fields.animation}" style="margin: {animation.fields.marges};">
+        <Picture media={animation.fields.media} />
+      </div>
     </figure>
     {/each}
   </div>
@@ -33,6 +34,7 @@
   }
 
   h5 {
+    font-weight: bold;
     padding: 6rem var(--gutter);
     position: sticky;
     top: 10rem;
@@ -49,8 +51,15 @@
   }
 
     .animations {
-      width: 666px;
+      width: 800px;
       margin: -20rem calc(var(--gutter) + 12vw) 0 auto;
+      // overflow-x: hidden;
+
+      @media (max-width: 900px) {
+        width: 742px;
+        transform: scale(0.3);
+        margin: -188% -66% -166% -62%;
+      }
     }
 
     figure {
@@ -86,11 +95,73 @@
 
     figcaption {
       width: 14rem;
+      transform: translateX(66%);
+
+      @media (max-width: 900px) {
+        width: 12rem;
+
+        h6 {
+          font-size: 25px;
+        }
+      }
+    }
+
+    figure:nth-child(2n - 1) figcaption {
+      transform: translateX(-50%);
+    }
+
+    @keyframes waves {
+      from { transform: rotate(-10deg) }
+      to { transform: rotate(10deg) }
+    }
+
+    @keyframes roule {
+      from { transform: translateX(-10%) }
+      to { transform: translateX(10%) }
+    }
+
+    @keyframes drop {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) } 
+      40% { transform: translateY(-15%) } 
+      60% { transform: translateY(-5%) } 
+    }
+
+    @keyframes float {
+      from { transform: translateY(-3.33%) }
+      to { transform: translateY(3.33%) }
+    }
+
+    .picture {
+      position: relative;
+      z-index: 1;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+
+      &.Waves {
+        transform-origin: center 100%;
+        animation-name: waves;
+        animation-duration: 3.33s;
+      }
+
+      &.Roule {
+        animation-name: roule;
+        animation-duration: 2s;
+      }
+
+      &.Drop {
+        animation-name: drop;
+        animation-duration: 2s;
+        animation-direction: normal;
+      }
+
+      &.Float {
+        animation-name: float;
+        animation-duration: 2s;
+      }
     }
 
     figure :global(img) {
-      position: relative;
       width: auto;
-      z-index: 1;
+      max-width: 22rem;
     }
 </style>

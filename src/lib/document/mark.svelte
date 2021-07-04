@@ -34,6 +34,7 @@
   em {
     font-style: normal;
     text-decoration: underline;
+    text-underline-offset: 0.5em;
     color: var(--light-1);
   }
 </style>
