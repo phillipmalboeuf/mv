@@ -20,7 +20,7 @@
       <svg viewBox="0 0 507 271" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M5 5H356.851C424.929 5 501.474 51.1889 501.474 138.653C501.474 226.117 424.929 265.427 356.851 265.427H5" stroke="#009639" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <div class="picture {animation.fields.animation}" style="margin: {animation.fields.marges};">
+      <div class="picture {animation.fields.animation}" style="margin: {animation.fields.marges}; animation-delay: {i/2}s;">
         <Picture media={animation.fields.media} />
       </div>
     </figure>
