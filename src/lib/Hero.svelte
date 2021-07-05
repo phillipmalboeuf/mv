@@ -39,6 +39,7 @@
 		display: flex;
 		align-items: center;
 		padding: 0 calc(var(--gutter) + 5vw) var(--gutter);
+		min-height: 50vh;
 
 		@media (max-width: 900px) {
 			flex-direction: column-reverse;
