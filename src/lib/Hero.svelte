@@ -12,9 +12,7 @@
 		<Document body={hero.text} />
 	</div>
 
-	<center>
-		<LogoAnimation />
-	</center>
+	<LogoAnimation />
 </article>
 
 <button on:click={e => window.scrollTo({
@@ -40,15 +38,17 @@
 		align-items: center;
 		padding: 0 calc(var(--gutter) + 5vw) var(--gutter);
 		min-height: 50vh;
+		width: 100%;
+		overflow: hidden;
 
 		@media (max-width: 900px) {
 			flex-direction: column-reverse;
+			row-gap: 2rem;
 			padding: 0 var(--gutter) var(--gutter);
 		}
 	}
 
-	div,
-	center {
+	div {
 		flex: 1;
 	}
 

@@ -1,22 +1,44 @@
 <script lang="ts">
   import { onMount } from 'svelte'
 
-  import { draw } from 'svelte/transition'
+  import type { TransitionConfig } from 'svelte/transition'
+  import { draw, slide } from 'svelte/transition'
+  import { cubicIn, cubicOut } from 'svelte/easing'
+
   let show = false
-  let element: SVGSVGElement
+  let showIn = false
+  let showOut = false
+  let element: HTMLElement
 
   const intersect: IntersectionObserverCallback = (entries) => {
     entries.forEach((entry) => {
       show = entry.isIntersecting
+      showIn = entry.isIntersecting
     })
   }
+
+  function reverseDraw(node: SVGElement & { getTotalLength(): number }, {
+    delay = 0,
+    duration,
+    easing = cubicOut
+  }): TransitionConfig {
+    const len = node.getTotalLength();
+
+    return {
+      delay,
+      duration,
+      easing,
+      css: (t, u) => `stroke-dasharray: ${t * len} ${u * len};stroke-dashoffset: ${t*len}`
+    };
+  }
+
 
   onMount(() => {
 
     let options = {
       root: null,
-      rootMargin: "-50% 0px 0px",
-      threshold: 0.5
+      rootMargin: "0px 0px 0px",
+      threshold: [0]
     }
 
     const observer = new IntersectionObserver(intersect, options)
@@ -26,44 +48,63 @@
   })
 </script>
 
-<svg width="288" height="288" viewBox="0 0 207 207" fill="none" xmlns="http://www.w3.org/2000/svg" bind:this={element}>
+<center bind:this={element}>
+<svg width="193" height="77" viewBox="0 0 140 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+{#if showIn}
+<line in:draw={{ duration: 333, easing: cubicIn }} out:reverseDraw={{ duration: 666 }} x2="140" y1="23" y2="23" stroke="url(#paint0_linear)" stroke-width="46"/>
 <defs>
-<linearGradient id="paint0_linear" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90) ">
+<linearGradient id="paint0_linear" x1="15.8449" y1="46.9987" x2="120.818" y2="46.9987" gradientUnits="userSpaceOnUse">
+<stop stop-color="#05C3DE" stop-opacity="0" />
+<stop offset="1" stop-color="#05C3DE"/>
+</linearGradient>
+</defs>
+{/if}
+</svg>
+
+<svg width="288" height="287" viewBox="0 0 207 207" style="margin: -1px -2px -95px -99px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="main0_linear" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90) ">
 <stop offset="0.446" stop-color="#05C3DE"/>
 <stop offset="0.446" stop-color="#007DBA"/>
 </linearGradient>
-<linearGradient id="paint1_linear" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90)">
+<linearGradient id="main1_linear" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90)">
 <stop offset="0.222" stop-color="#009639"/>
 <stop offset="0.222" stop-color="#8EDE65"/>
 </linearGradient>
 </defs>
 {#if show}
-<path in:draw={{ delay: 100, duration: 666 }} out:draw={{ duration: 666 }} d="M206 69L172 69L138 69L138 35L138 1" stroke="url(#paint1_linear)" stroke-width="46"/>
+<path in:draw={{ delay: 100 + 333, duration: 666, easing: cubicOut }} out:draw={{ duration: 666 }} d="M206 69L172 69L138 69L138 35L138 1" stroke="url(#main1_linear)" stroke-width="46"/>
 <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="207" height="207">
 <path d="M69.5 0.898418L206.602 138L69.5 138L69.5 0.898418Z" fill="black"/>
 </mask>
 <g mask="url(#mask0)">
-<path in:draw={{ duration: 666 }} out:draw={{ delay: 100, duration: 666 }} d="M70 69.5H104H138V103.5V137.5" stroke="url(#paint0_linear)" stroke-width="46" />
+<path in:draw={{ delay: 333, duration: 666, easing: cubicOut }} out:draw={{ delay: 100, duration: 666 }} d="M70 69.5H104H138V103.5V137.5" stroke="url(#main0_linear)" stroke-width="46" />
 </g>
 {/if}
 </svg>
 
-<!-- <svg width="207" height="207" viewBox="0 0 207 207" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M206 69L172 69L138 69L138 35L138 1" stroke="#8EDE65" stroke-width="46" stroke-miterlimit="1.80775" stroke-linejoin="bevel"/>
-<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="207" height="207">
-<path d="M69.5 0.898418L206.602 138L69.5 138L69.5 0.898418Z" fill="black"/>
-</mask>
-<g mask="url(#mask0)">
-<path d="M70 69.5H104H138V103.5V137.5" stroke="#05C3DE" stroke-width="46" stroke-miterlimit="1.80775"/>
-</g>
-</svg> -->
-
-
-<!-- <svg width="137" height="137" viewBox="0 0 137 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-{#if show}
-<path transition:draw d="M91.07 91.07H45.37V136.44H91.07V91.07Z" stroke="#007DBA"/>
-<path transition:draw d="M91 0H45V55H91V0Z" stroke="#009639"/>
-<path transition:draw d="M0 45.37V91.06H45.37H91.06L45.37 45.37H0Z" stroke="#05C3DE"/>
-<path transition:draw d="M91.07 45.37H45.37L91.07 91.06V91.07H136.43V45.37H91.07Z" stroke="#8EDD65"/>
+<svg width="193" height="77" viewBox="0 0 140 46" style="margin-top: -2px" fill="none" xmlns="http://www.w3.org/2000/svg">
+{#if showIn}
+<line in:draw={{ delay: 100, duration: 333, easing: cubicIn }} out:reverseDraw={{ duration: 666 }} on:introend="{() => showIn = false}" y1="23" x1={showIn && "140"} x2={!showIn && "140"} y2="23" stroke="url(#right_linear)" stroke-width="46"/>
+<defs>
+<linearGradient id="right_linear" x1="2.45804e-09" y1="46.9985" x2="116.077" y2="46.9986" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8EDE65"/>
+<stop offset="1" stop-color="#8EDE65" stop-opacity="0"/>
+</linearGradient>
+</defs>
 {/if}
-</svg> -->
+</svg>
+</center>
+
+<style>
+  center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    /* width: 100%; */
+  }
+</style>
