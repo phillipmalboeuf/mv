@@ -48,6 +48,9 @@
 
 		figcaption {
 			width: 60%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 
 			@media (max-width: 900px) {
 				width: 100%;

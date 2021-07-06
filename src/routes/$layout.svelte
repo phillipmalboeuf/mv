@@ -167,6 +167,10 @@
       :global(em) {
         color: var(--light-2);
       }
+
+      :global(path) {
+        fill: var(--light-1);
+      }
     }
   }
 
