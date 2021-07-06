@@ -58,7 +58,7 @@
       @media (max-width: 900px) {
         width: 742px;
         transform: scale(0.3);
-        margin: -188% -66% -166% -62%;
+        margin: -200% -66% -200% -62%;
       }
     }
 

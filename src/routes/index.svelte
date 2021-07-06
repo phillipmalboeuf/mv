@@ -105,6 +105,10 @@
 		section.left:not(.row) {
 			align-items: flex-start;
 			padding: 10vw 4vw;
+
+			@media (max-width: 900px) {
+				padding: 10vh 4vw;
+			}
 		}
 
 		section.left center {

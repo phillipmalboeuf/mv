@@ -77,7 +77,7 @@
 
 				@media (max-width: 900px) {
 					font-size: 30px;
-					margin-left: -1rem;
+					margin-left: 0;
 					margin-bottom: 2rem;
 				}
 			}
@@ -89,7 +89,7 @@
 
 				@media (max-width: 900px) {
 					font-size: 14px;
-					margin-left: -1rem;
+					margin-left: 0;
 				}
 			}
 
