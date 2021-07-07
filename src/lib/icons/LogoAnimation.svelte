@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
 
   import type { TransitionConfig } from 'svelte/transition'
-  import { draw, slide } from 'svelte/transition'
+  import { draw } from 'svelte/transition'
   import { cubicIn, cubicOut } from 'svelte/easing'
 
   let show = false
@@ -85,7 +85,7 @@
 
 <svg width="193" height="77" viewBox="0 0 140 46" style="margin-top: -2px" fill="none" xmlns="http://www.w3.org/2000/svg">
 {#if showIn}
-<line in:draw={{ delay: 100, duration: 333, easing: cubicIn }} out:reverseDraw={{ duration: 666 }} on:introend="{() => showIn = false}" y1="23" x1={showIn && "140"} x2={!showIn && "140"} y2="23" stroke="url(#right_linear)" stroke-width="46"/>
+<line in:draw={{ delay: 100, duration: 333, easing: cubicIn }} out:reverseDraw={{ duration: 666 }} on:introend={() => showIn = false} y1="23" x1={showIn && "140"} x2={!showIn && "140"} y2="23" stroke="url(#right_linear)" stroke-width="46"/>
 <defs>
 <linearGradient id="right_linear" x1="2.45804e-09" y1="46.9985" x2="116.077" y2="46.9986" gradientUnits="userSpaceOnUse">
 <stop stop-color="#8EDE65"/>
