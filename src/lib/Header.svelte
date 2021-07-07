@@ -46,10 +46,10 @@ import Menu from './Menu.svelte'
 
     @media (max-width: 900px) {
       max-width: 8rem;
-    }
 
-    :global(svg) {
-      width: 100%;
+      :global(svg) {
+        width: 100%;
+      }
     }
   }
 
