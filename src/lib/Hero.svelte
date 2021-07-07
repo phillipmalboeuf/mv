@@ -36,8 +36,8 @@
 	article {
 		display: flex;
 		align-items: center;
-		padding: 0 calc(var(--gutter) + 5vw) var(--gutter);
-		min-height: 50vh;
+		padding: 0 calc(var(--gutter) + 5vw);
+		min-height: 66vh;
 		width: 100%;
 		overflow: hidden;
 
