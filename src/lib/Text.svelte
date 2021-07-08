@@ -14,7 +14,7 @@
 
 <style lang="scss">
 	center {
-		width: 75%;
+		width: 88%;
 		margin: 0 auto;
 
 		@media (max-width: 900px) {
@@ -30,7 +30,10 @@
 	figure {
 		padding: var(--gutter);
 		margin: 0;
-		max-width: 25rem;
+		max-width: 30rem;
+		height: 12rem;
+		display: flex;
+		align-items: center;
 
 		@media (max-width: 900px) {
 			// padding: 0;

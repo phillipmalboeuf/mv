@@ -12,6 +12,12 @@
 	export let slides: Entry<{ titre: string }>[]
   export let noLines = false
   export let spaced = true
+  export let random = false
+  export let autoplay = false
+
+  if (random) {
+    slides.sort(() => Math.random() - 0.5)
+  }
 
   let element: HTMLDivElement
   let slider: KeenSlider
@@ -21,7 +27,7 @@
     slider = new KeenSlider(element, {
       loop: true,
       centered: true,
-      slidesPerView: spaced ? 1.5 : 3,
+      slidesPerView: spaced ? 1.5 : 2,
       ...spaced && { spacing: 20 },
       slideChanged: instance => {
         current = instance.details().relativeSlide
@@ -33,7 +39,17 @@
       }
     })
 
-    return () => slider.destroy()
+    let interval: NodeJS.Timeout
+    if (autoplay) {
+      interval = setInterval(() => {
+        slider.next()
+      }, 3333)
+    }
+
+    return () => {
+      if (interval) { clearInterval(interval) }
+      slider.destroy()
+    }
   })
 </script>
 

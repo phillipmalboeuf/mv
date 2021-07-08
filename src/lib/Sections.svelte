@@ -17,7 +17,7 @@
 {:else if section.sys.contentType.sys.id === 'text'}
 <Text text={section.fields} />
 {:else if section.sys.contentType.sys.id === 'slider'}
-<Slider slides={section.fields.slides} noLines={!section.fields.ligne} />
+<Slider slides={section.fields.slides} noLines={!section.fields.ligne} spaced={section.fields.ligne} random={section.fields.random} autoplay={section.fields.autoplay} />
 {:else if section.sys.contentType.sys.id === 'colonnes'}
 <Columns columns={section.fields.colonnes} />
 {:else if section.sys.contentType.sys.id === 'parcours'}
