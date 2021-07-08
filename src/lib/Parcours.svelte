@@ -29,8 +29,8 @@
 
     let options = {
       root: null,
-      rootMargin: "0px 0px 0px",
-      threshold: [1]
+      rootMargin: "-45% 0px 0px",
+      threshold: [0]
     }
 
     const observer = new IntersectionObserver(intersect, options)

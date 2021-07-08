@@ -37,7 +37,7 @@
 
     let options = {
       root: null,
-      rootMargin: "0px 0px 0px",
+      rootMargin: "-45% 0px 0px",
       threshold: [0]
     }
 
@@ -73,12 +73,12 @@
 </linearGradient>
 </defs>
 {#if show}
-<path in:draw={{ delay: 100 + 333, duration: 666, easing: cubicOut }} out:draw={{ duration: 666 }} d="M206 69L172 69L138 69L138 35L138 1" stroke="url(#main1_linear)" stroke-width="46"/>
+<path in:draw={{ delay: 100 + 333, duration: 666, easing: cubicOut }} out:reverseDraw={{ duration: 666 }} d="M206 69L172 69L138 69L138 35L138 1" stroke="url(#main1_linear)" stroke-width="46"/>
 <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="207" height="207">
 <path d="M69.5 0.898418L206.602 138L69.5 138L69.5 0.898418Z" fill="black"/>
 </mask>
 <g mask="url(#mask0)">
-<path in:draw={{ delay: 333, duration: 666, easing: cubicOut }} out:draw={{ delay: 100, duration: 666 }} d="M70 69.5H104H138V103.5V137.5" stroke="url(#main0_linear)" stroke-width="46" />
+<path in:draw={{ delay: 333, duration: 666, easing: cubicOut }} out:reverseDraw={{ delay: 100, duration: 666 }} d="M70 69.5H104H138V103.5V137.5" stroke="url(#main0_linear)" stroke-width="46" />
 </g>
 {/if}
 </svg>

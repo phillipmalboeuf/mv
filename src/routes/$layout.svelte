@@ -92,8 +92,10 @@
   }
 
   main {
-    // margin-top: calc(var(--gutter) * 5);
-    // padding: var(--gutter);
+    
+    @media (max-width: 900px) {
+      margin-top: calc(var(--gutter) * 5);
+    }
   }
 
   :global(h1, h2, h3, h4, h5, h6) {
