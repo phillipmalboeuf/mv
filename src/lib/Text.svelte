@@ -38,6 +38,10 @@
 		:global(picture) {
 			margin: 0 auto;
 			height: 100%;
+
+			:global(img) {
+				height: 100%;
+			}
 		}
 
 		@media (max-width: 900px) {
