@@ -8,7 +8,7 @@
 
 <center>
 {#if text.icon}<figure><Picture media={text.icon} /></figure>{/if}
-{#if text.titre}<h2>{text.titre}</h2>{/if}
+<!-- {#if text.titre}<h2>{text.titre}</h2>{/if} -->
 {#if text.body}<Document body={text.body} />{/if}
 </center>
 
@@ -34,6 +34,11 @@
 		height: 12rem;
 		display: flex;
 		align-items: center;
+
+		:global(picture) {
+			margin: 0 auto;
+			height: 100%;
+		}
 
 		@media (max-width: 900px) {
 			// padding: 0;
