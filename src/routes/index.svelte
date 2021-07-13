@@ -60,7 +60,7 @@
 	section {
 		position: relative;
 		min-height: 666px;
-		scroll-margin-top: 10rem;
+		scroll-margin-top: 8rem;
 
 		display: flex;
 		flex-direction: column;
