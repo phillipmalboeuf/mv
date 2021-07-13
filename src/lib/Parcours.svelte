@@ -73,6 +73,7 @@
 
   h5 {
     font-weight: bold;
+    font-size: 30px;
     padding: 6rem var(--gutter);
     position: sticky;
     top: 10rem;

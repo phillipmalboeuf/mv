@@ -34,7 +34,7 @@ import Menu from './Menu.svelte'
     align-items: center;
     justify-content: space-between;
 
-    padding: var(--gutter);
+    padding: 1rem var(--gutter);
     background: var(--dark-faded);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
