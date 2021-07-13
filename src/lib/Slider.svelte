@@ -23,6 +23,8 @@
   let slider: KeenSlider
   let current = 0
 
+  let interval: NodeJS.Timeout
+
   onMount(() => {
     slider = new KeenSlider(element, {
       loop: true,
@@ -31,6 +33,10 @@
       ...spaced && { spacing: 20 },
       slideChanged: instance => {
         current = instance.details().relativeSlide
+        if (interval) {
+          clearInterval(interval)
+          interval = setInterval(slider.next, 3333)
+        }
       },
       breakpoints: {
         '(max-width: 900px)': {
@@ -39,11 +45,8 @@
       }
     })
 
-    let interval: NodeJS.Timeout
     if (autoplay) {
-      interval = setInterval(() => {
-        slider.next()
-      }, 3333)
+      interval = setInterval(slider.next, 3333)
     }
 
     return () => {
