@@ -66,7 +66,7 @@
 		}
 
 		article {
-			padding-top: 6rem;
+			padding-top: 4.666rem;
 		}
 
 			article :global(h2),
