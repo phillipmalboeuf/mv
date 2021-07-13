@@ -176,6 +176,11 @@
     }
   }
 
+  :global(sup),
+  :global(sub) {
+    font-size: 0.333em;
+  }
+
   :global(ul, ol) {
     padding-left: 1.333em;
   }
