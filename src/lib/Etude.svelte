@@ -71,7 +71,7 @@
 
 			article :global(h2),
 			article :global(h4) {
-				font-size: 40px;
+				font-size: 35px;
 				color: var(--color);
 				margin-left: calc(var(--gutter) * -1);
 
@@ -93,9 +93,9 @@
 				}
 			}
 
-			/* article :global(p) {
-				margin: 0 var(--gutter);
-			} */
+			aside :global(p) {
+				font-size: 16px;
+			}
 
 			figcaption :global(strong) {
 				color: var(--color-dark);
