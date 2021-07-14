@@ -29,7 +29,7 @@
 
     let options = {
       root: null,
-      rootMargin: "-45% 0px 0px",
+      rootMargin: "0px",
       threshold: [0]
     }
 
