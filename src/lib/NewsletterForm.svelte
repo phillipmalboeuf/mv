@@ -1,15 +1,16 @@
 <script lang="ts">
 	import type { Asset, Entry, RichTextContent } from 'contentful'
 
-	export let form: { nom: string, courriel: string, termsEtConditions: string, mabonner: string, listUrl: string }
+	export let form: { nom: string, courriel: string, termsEtConditions: string, mabonner: string, listUrl: string, listHiddenCode?: string }
   let checked: boolean
 </script>
 
 <form target="_blank" action={form.listUrl} method="POST">
-  <input id="name" name="name" placeholder={form.nom} />
-  <input id="email" type="email" name="email" placeholder={form.courriel} />
-  <input id="check" type="checkbox" name="check" placeholder={form.courriel} bind:checked />
+  <input id="name" name="NAME" placeholder={form.nom} />
+  <input id="email" type="email" name="EMAIL" placeholder={form.courriel} />
+  <input id="check" type="checkbox" name="check" bind:checked />
   <label for="check">{form.termsEtConditions}</label>
+  {#if form.listHiddenCode}<div aria-hidden="true"><input type="text" name={form.listHiddenCode} tabindex="-1" value=""></div>{/if}
   <button type="submit" disabled={!checked}>{form.mabonner}</button>
 </form>
 
@@ -69,5 +70,10 @@
         margin: 2rem auto 0;
       }
     }
+  }
+
+  div[aria-hidden] {
+    position: absolute;
+    left: -5000px;
   }
 </style>
