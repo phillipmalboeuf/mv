@@ -6,6 +6,10 @@
 	export let hero: { titre: string, text?: RichTextContent }
 </script>
 
+<svelte:head>
+	<title>Maillon Vert – {hero.titre}</title>
+</svelte:head>
+
 <article>
 	<div>
 		<h1>{hero.titre}</h1>
