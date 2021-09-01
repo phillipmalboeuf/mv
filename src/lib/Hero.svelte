@@ -24,14 +24,7 @@
 	behavior: 'smooth'
 })}>
 	<svg width="60" height="31" viewBox="0 0 60 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<g clip-path="url(#clip0)">
 		<path d="M59.5847 0.406219L29.9943 30.176L0.403809 0.406219" stroke="#009639" stroke-width="2" stroke-miterlimit="10"/>
-		</g>
-		<defs>
-		<clipPath id="clip0">
-		<rect width="60" height="31" fill="white"/>
-		</clipPath>
-		</defs>
 	</svg>
 </button>
 

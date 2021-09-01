@@ -30,7 +30,7 @@
   <a on:click={() => open = false} href={`#contact`}>Contact</a>
   <div>
     <a href="https://www.facebook.com/maillonvert" target="_blank">
-      <svg width="14" height="28" viewBox="0 0 14 28" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0)"> <path d="M4.16488 27.9993V15.2256H0V10.2578H4.1448V6.58141C4.1448 2.32179 6.64875 -0.000697359 10.3018 -0.000697359C11.5362 -0.00590472 12.7706 0.061791 14 0.197182V4.64948H11.4609C9.4638 4.64948 9.08244 5.63367 9.08244 7.07611V10.2578H13.8344L13.2122 15.2256H9.10753V27.9993" fill="white"/> </g> <defs> <clipPath id="clip0"> <rect width="14" height="28" fill="white"/> </clipPath> </defs> </svg>
+      <svg width="14" height="28" viewBox="0 0 14 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.16488 27.9993V15.2256H0V10.2578H4.1448V6.58141C4.1448 2.32179 6.64875 -0.000697359 10.3018 -0.000697359C11.5362 -0.00590472 12.7706 0.061791 14 0.197182V4.64948H11.4609C9.4638 4.64948 9.08244 5.63367 9.08244 7.07611V10.2578H13.8344L13.2122 15.2256H9.10753V27.9993" fill="white"/></svg>
     </a>
     <a href="https://www.linkedin.com/company/maillon-vert/" target="_blank">
       <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
