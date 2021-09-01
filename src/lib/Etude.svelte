@@ -8,7 +8,7 @@
 </script>
 
 <figure style="--color: {couleur(etude.couleur)}; --color-dark: {couleur(etude.couleur, true)}; --li-color: {couleur(etude.couleur)}">
-	{#if etude.photo}<Picture media={etude.photo} />{/if}
+	{#if etude.photo}<Picture small media={etude.photo} />{/if}
 	<figcaption>
 		{#if etude.titre}<h6 style="color: var(--color); background-color: var(--color-dark)">{etude.titre}</h6>{/if}
 		{#if etude.text}<article><Document body={etude.text} /></article>{/if}
