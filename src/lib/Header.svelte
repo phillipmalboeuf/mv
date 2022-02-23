@@ -9,7 +9,7 @@ import Menu from './Menu.svelte'
 
 
 <header>
-  <a href="/" class="logo">
+  <a href="/#top" class="logo">
     <Logo />
   </a>
   <nav>

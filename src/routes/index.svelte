@@ -26,9 +26,9 @@
 	}>
 </script>
 
-{#each page.fields.sections as section}
+{#each page.fields.sections as section, i}
 {#if section.sys.contentType.sys.id === 'hero'}
-<section>
+<section id={i === 0 && '#top'}>
 	<Hero hero={section.fields} />
 </section>
 {:else if section.sys.contentType.sys.id === 'text'}
