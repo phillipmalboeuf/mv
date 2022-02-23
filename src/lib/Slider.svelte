@@ -29,7 +29,7 @@
     slider = new KeenSlider(element, {
       loop: true,
       centered: true,
-      slidesPerView: spaced ? 1.5 : 2,
+      slidesPerView: spaced ? 1.25 : 2,
       ...spaced && { spacing: 20 },
       slideChanged: instance => {
         current = instance.details().relativeSlide
@@ -98,6 +98,36 @@
 
     .keen-slider__slide {
       transition: opacity 666ms;
+    }
+
+    :not(.noLines) > .keen-slider__slide.current {
+      overflow: visible;
+
+      &:after,
+      &:before {
+        pointer-events: none;
+        content: '←';
+        position: absolute;
+        top: calc(50% - 1rem);
+        left: -4rem;
+        font-size: 2rem;
+
+        @media (max-width: 900px) {
+          top: calc(33% - 1rem);
+          left: -2rem;
+          font-size: 1.5rem;
+        }
+      }
+
+      &:after {
+        content: '→';
+        left: auto;
+        right: -4rem;
+
+        @media (max-width: 900px) {
+          right: -2rem;
+        }
+      }
     }
 
     .keen-slider__slide:not(.current) {

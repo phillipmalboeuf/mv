@@ -71,12 +71,12 @@
 
 			article :global(h2),
 			article :global(h4) {
-				font-size: 35px;
+				font-size: 33px;
 				color: var(--color);
 				margin-left: calc(var(--gutter) * -1);
 
 				@media (max-width: 900px) {
-					font-size: 30px;
+					font-size: 26px;
 					margin-left: 0;
 					margin-bottom: 2rem;
 				}
