@@ -44,7 +44,7 @@ import Menu from './Menu.svelte'
     position: relative;
     z-index: 2;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       max-width: 8rem;
 
       :global(svg) {

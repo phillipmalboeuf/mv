@@ -101,7 +101,11 @@
       margin: -20rem calc(var(--gutter) + 12vw) 0 auto;
       // overflow-x: hidden;
 
-      @media (max-width: 900px) {
+      @media (max-width: 1100px) {
+        margin-right: calc(var(--gutter) + 3vw);
+      }
+
+      @media (max-width: 800px) {
         width: 742px;
         transform: scale(0.3);
         margin: -200% -66% -200% -62%;

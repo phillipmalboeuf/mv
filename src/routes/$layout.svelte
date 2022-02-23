@@ -109,6 +109,10 @@
     font-size: 90px;
     line-height: 1.222;
 
+    @media (max-width: 1100px) {
+      font-size: 66px;
+    }
+
     @media (max-width: 900px) {
       font-size: 45px;
     }
