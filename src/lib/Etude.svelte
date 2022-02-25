@@ -37,7 +37,7 @@
 		}
 
 		figure :global(picture) {
-			width: 40%;
+			width: 34%;
 
 			@media (max-width: 900px) {
 				width: 100%;
@@ -47,7 +47,7 @@
 		}
 
 		figcaption {
-			width: 60%;
+			width: 66%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
