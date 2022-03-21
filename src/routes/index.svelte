@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
 
-	export const load = async ({ page, fetch, session, context }) => {
+	export const load = async ({ fetch }) => {
 		const res = await fetch('page.json')
 
 		return {

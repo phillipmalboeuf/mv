@@ -2,6 +2,8 @@
 node_modules
 /.svelte
 /build
+/.svelte-kit
+/package
 /functions
 _ignore
 .env
